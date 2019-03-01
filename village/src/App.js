@@ -33,6 +33,7 @@ class App extends Component {
       smurfs: newSmurfs.data
     })
   }
+  
   deleteSmurf(e, id){
     e.preventDefault();
     console.log(id);
