@@ -14,6 +14,7 @@ class App extends Component {
     };
 
     this.updateSmurfs = this.updateSmurfs.bind(this)
+    this.deleteSmurf = this.deleteSmurf.bind(this)
   }
 
   componentDidMount(){
@@ -32,19 +33,27 @@ class App extends Component {
       smurfs: newSmurfs.data
     })
   }
+  deleteSmurf(e, id){
+    e.preventDefault();
+    console.log(id);
+
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => this.setState({smurfs: res.data}))
+    .catch(err => console.log(err))
+  }
 
   render() {
     return (
       <div className="App">
         <div className="nav-bar">
-          <NavLink to="/">Smurfs</NavLink>
+          <NavLink to="/" style={{marginRight: "50px"}}>Smurfs</NavLink>
           <NavLink to="/smurf-form">
           Add A Smurf</NavLink>
 
         </div>
 
 
-        <Route path="/" exact render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        <Route path="/" exact render={props => <Smurfs {...props} deleteSmurf={this.deleteSmurf} smurfs={this.state.smurfs} />} />
         <Route path="/smurf-form" exact render={props => <SmurfForm {...props} updateSmurfs={this.updateSmurfs}/>} />
 
 
