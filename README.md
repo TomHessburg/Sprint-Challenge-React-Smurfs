@@ -29,8 +29,18 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
+
+      the biggest difference is the need to reload the entire page when server side routing. with client side routing, we need to load everythign at once so initial wait times are a bit logner, but then everything moves much more quickly between pages. HOWEVER, this can be a bit worse for SEO purposes compared to SSR.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+      Im assuming were talking about .then and .catch here. Essentially wel make one of our CRUD requests, such as get put or delete, and then take that information and do something. we can chain .then() which will recieve the response ffrom the operation before it multiple times to change our data, then use .catch to catch any errors
+
+
 - [ ] Mention three tools we can use to make AJAX requests.
+
+      We can use the experimental fetch function in JS, we could use a library such as AXIOS (which is most of what weve been doing this week), or we could use some newer functionality such as async/await.
+
 
 
 ## Project Set Up
